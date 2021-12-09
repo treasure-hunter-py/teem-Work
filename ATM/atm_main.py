@@ -10,7 +10,13 @@ def balance_changer(user_id,calc_char):
         with open(pathlib.Path(__file__).parent.joinpath('DEPOSIT').joinpath(f'{user_id}.txt'), 'r+') as many_file:
             temp = int(input('n mach ? '))
             temp_many = int(many_file.read()) + temp
-            many_file.write(temp_many)
+            many_file.write(str(temp_many))
+            print(temp_many)
+    elif calc_char == '-':
+        with open(pathlib.Path(__file__).parent.joinpath('DEPOSIT').joinpath(f'{user_id}.txt'), 'r+') as many_file:
+            temp = int(input('n mach ? '))
+            temp_many = int(many_file.read()) - temp
+            many_file.write(str(temp_many))
             print(temp_many)
            
 
@@ -56,7 +62,7 @@ while True:
             if add_or_take == '1':
                 balance_changer(user_name,'+')
             elif add_or_take == '2':
-                balance_changer(user_name,'+')
+                balance_changer(user_name,'-')
 
     
     
